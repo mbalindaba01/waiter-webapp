@@ -18,24 +18,54 @@ const pool = new Pool({
 
 const waiters = Waiters(pool)
 
-
-
-
 module.exports = () => {
     const main = async (req, res) => {
+        res.render('home')
+    }
+
+    const dashboard = (req, res) => {
+        res.render('dashboard')
+    }
+
+    const wait = async (req, res) => {
         let week = await waiters.getDays()
         res.render('index', {
+            name: waiters.getName(),
             days: week
         })
     }
 
+    const home = (req, res) => {
+        waiters.setUser(req.body.user)
+        waiters.getUser() == "Manager" ? res.redirect('/dashboard') : res.redirect('/login')
+    }
+
+    const login = (req, res) => {
+        res.render('login')
+    }
+
+    const name = (req, res) => {
+        waiters.setName(req.body.name)
+        console.log(waiters.getName())
+        res.redirect('waiters')
+    }
+
     const days = async (req, res) => {
-        console.log(req.body.days)
+        res.redirect('/')
+    }
+
+    const back = (req, res) => {
         res.redirect('/')
     }
 
     return {
         main,
-        days
+        days,
+        home,
+        dashboard,
+        wait,
+        back,
+        login,
+        name
     }
 }

@@ -29,8 +29,19 @@ app.use(express.json())
 
 app.get('/', routes.main)
 
-// //sets values for name, language uses and stores name of greeted person in database
-app.post("/days", routes.days)
+app.get('/dashboard', routes.dashboard)
+
+app.get('/waiters', routes.wait)
+
+app.get('/login', routes.login)
+
+app.post("/waiter", routes.days)
+
+app.post('/home', routes.home)
+
+app.post('/name', routes.name)
+
+app.post('/back', routes.back)
 
 // //empties database and resets counter
 // app.post("/counter", routes.counter)
