@@ -27,11 +27,10 @@ app.use(express.json())
 
 
 
-//gets values for counter value and greeting text
 app.get('/', routes.main)
 
 // //sets values for name, language uses and stores name of greeted person in database
-// app.post("/name", routes.names)
+app.post("/days", routes.days)
 
 // //empties database and resets counter
 // app.post("/counter", routes.counter)

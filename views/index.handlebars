@@ -1,1 +1,29 @@
-Hello
+<header>
+    <h2>What's up, Mbali</h2>
+    <p>Choose the days you will work on</p>
+</header>
+<form action="/days" method="post">
+    <div class="container">
+        {{#each days}}
+            <input type="checkbox" id="{{day}}" name="days" value="{{day}}">
+            <label for="{{day}}">{{day}}</label><br>
+        {{/each}}
+        {{!-- <input type="checkbox" id="Tuesday" name="days" value="Tuesday">
+        <label for="Tuesday">Tuesday</label><br>
+        <input type="checkbox" id="Wednesday" name="days" value="Wednesday">
+        <label for="Wednesday">Wednesday</label><br>
+        <input type="checkbox" id="Thursday" name="days" value="Thursday">
+        <label for="Thursday">Thursday</label><br>
+        <input type="checkbox" id="Friday" name="days" value="Friday">
+        <label for="Friday">Friday</label><br>
+        <input type="checkbox" id="Saturday" name="days" value="Saturday">
+        <label for="Saturday">Saturday</label><br>
+        <input type="checkbox" id="Sunday" name="days" value="Sunday">
+        <label for="Sunday">Sunday</label><br> --}}
+    </div>
+    <button type="submit" value="Submit">Submit</button>
+</form>
+
+{{!-- <form action="/" method="get">
+    
+</form> --}}
