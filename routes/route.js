@@ -3,11 +3,11 @@ const Waiters = require('../waiters')
 let Manager = require('../manager')
 
 
-let useSSL = false
-let local = process.env.local || false
-if(process.env.DATABASE_URL && !local){
-    useSSL = true
-}
+// let useSSL = false
+// let local = process.env.local || false
+// if(process.env.DATABASE_URL && !local){
+//     useSSL = true
+// }
 
 //set up pool connection to database
 const pool = new Pool({
