@@ -35,14 +35,13 @@ app.get('/waiters', routes.wait)
 
 app.get('/login', routes.login)
 
-app.post("/waiter", routes.days)
+app.post('/days', routes.days)
 
 app.post('/home', routes.home)
 
 app.post('/name', routes.name)
 
-app.post('/back', routes.back)
-
+app.post('/workdays', routes.workdays)
 // //empties database and resets counter
 // app.post("/counter", routes.counter)
 

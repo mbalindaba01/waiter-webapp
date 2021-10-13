@@ -1,5 +1,6 @@
 const { Pool } = require('pg')
 const Waiters = require('../waiters')
+let Manager = require('../manager')
 
 
 let useSSL = false
@@ -11,20 +12,26 @@ if(process.env.DATABASE_URL && !local){
 //set up pool connection to database
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL || "postgresql://postgres:Minenhle!28@localhost:5432/waiter_app",
-//   ssl: {
-//     rejectUnauthorized: false
-//   }
+  ssl: {
+    rejectUnauthorized: false
+  }
 })
 
 const waiters = Waiters(pool)
+const manager = Manager(pool)
 
 module.exports = () => {
     const main = async (req, res) => {
         res.render('home')
     }
 
-    const dashboard = (req, res) => {
-        res.render('dashboard')
+    const dashboard = async (req, res) => {
+        let filteredWaiters = await manager.getWaiters()
+        let week = await waiters.getDays()
+        res.render('dashboard', {
+            waiters: filteredWaiters,
+            days: week
+        })
     }
 
     const wait = async (req, res) => {
@@ -46,16 +53,18 @@ module.exports = () => {
 
     const name = (req, res) => {
         waiters.setName(req.body.name)
-        console.log(waiters.getName())
         res.redirect('waiters')
     }
 
     const days = async (req, res) => {
+        waiters.setChosenDays(req.body.days)
+        waiters.saveToDb()
         res.redirect('/')
     }
 
-    const back = (req, res) => {
-        res.redirect('/')
+    const workdays = async (req, res) => {
+        manager.setDay(req.body.days)
+        res.redirect('/dashboard')
     }
 
     return {
@@ -64,8 +73,8 @@ module.exports = () => {
         home,
         dashboard,
         wait,
-        back,
         login,
-        name
+        name,
+        workdays
     }
 }

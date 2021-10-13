@@ -1,6 +1,7 @@
 module.exports = (pool) => {
     let appUser = ""
     let username = ""
+    let chosenDays = []
 
     const setUser = (user) => {
         appUser = user
@@ -10,8 +11,8 @@ module.exports = (pool) => {
         username = name
     }
 
-    const setChosenDays = () => {
-        
+    const setChosenDays = (days) => {
+        chosenDays = days
     }
 
     const getDays = async () => {
@@ -22,8 +23,10 @@ module.exports = (pool) => {
 
     const getUser = () => appUser
 
+    const getChosenDays = () => chosenDays
+
     const saveToDb = async () => {
-        pool.query("insert into waiters (waiter_name, days) values ($1, $2)", [])
+        await pool.query("insert into waiters (waiter_name, days) values ($1, $2)", [getName(), getChosenDays()])
     }
 
     return {
@@ -31,6 +34,9 @@ module.exports = (pool) => {
         getDays,
         getUser,
         setName,
-        getName
+        getName,
+        setChosenDays,
+        getChosenDays,
+        saveToDb,
     }
 }
