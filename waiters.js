@@ -16,7 +16,7 @@ module.exports = (pool) => {
     }
 
     const getDays = async () => {
-        let days = await pool.query('select day from days')
+        let days = await pool.query('select * from days')
         return days.rows
     }
     const getName = () => username

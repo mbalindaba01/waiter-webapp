@@ -36,6 +36,7 @@ module.exports = () => {
 
     const wait = async (req, res) => {
         let week = await waiters.getDays()
+        console.log(week)
         res.render('index', {
             name: waiters.getName(),
             days: week
@@ -59,7 +60,6 @@ module.exports = () => {
     const days = async (req, res) => {
         waiters.setChosenDays(req.body.days)
         waiters.saveToDb()
-        res.redirect('/')
     }
 
     const workdays = async (req, res) => {

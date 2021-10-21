@@ -7,16 +7,26 @@
 }
 
 body {
-    background: #222;
+    height: 100vh;
+    background: #040F16;
     font-family: 'Poppins';
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    color: #FBFBFF;
 }
 
 .container {
     display: flex;
     align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+input:checked ~ label {
+    background: #FBFBFF;
+    color: #040F16;
 }
 
 input[type="checkbox"] {
@@ -26,4 +36,49 @@ input[type="checkbox"] {
 .container label {
     cursor: pointer;
     margin: 0 10px;
+    height: 30px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #FBFBFF;
+}
+
+button {
+    height: 40px;
+    width: 200px;
+    margin: 20px 10px;
+    background: #25F500;
+    outline: none;
+    border: none;
+    border-radius: 0;
+    color: #FBFBFF;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+button[value="Login"]{
+    margin-left: 0;
+}
+
+input[type="text"] {
+    height: 40px;
+    width: 370px;
+}
+
+h2{
+    margin-bottom: 20px;
+}
+
+::placeholder {
+    font-size: 1em;
+}
+
+form#login {
+    display: flex;
+    flex-direction: column;
+}
+
+form#days {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
