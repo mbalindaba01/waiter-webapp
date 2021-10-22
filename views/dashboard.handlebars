@@ -1,12 +1,12 @@
 <h2>Hi, Manager</h2>
 <p>Here is where we are at currently this week</p>
 
-<form action="/workdays" method="post">
+<form action="/workdays" method="post" id="workdays">
     {{#each days}}
     <button type="submit" name="days" value="{{day}}">{{day}}</button>
     {{/each}}
 </form>
-<h3>Here is a list of available waiters. Click on a day to see which of these are available on that day</h3>
+<h3>This is a list of available waiters. Click on a day to see which of these are available on that day</h3>
 {{#each waiters}}
     <p>{{waiter_name}}</p>
 {{/each}}

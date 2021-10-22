@@ -36,10 +36,15 @@ module.exports = () => {
 
     const wait = async (req, res) => {
         let week = await waiters.getDays()
-        console.log(week)
+        let greetText = await waiters.greetText()
+        let name = waiters.getName().charAt(0).toUpperCase() + waiters.getName().slice(1, waiters.getName().length)
+        let btnText = waiters.btnMessage()
         res.render('index', {
-            name: waiters.getName(),
-            days: week
+            name: name,
+            days: week,
+            greetText: greetText,
+            success: waiters.success(),
+            btnText: btnText
         })
     }
 
@@ -59,7 +64,10 @@ module.exports = () => {
 
     const days = async (req, res) => {
         waiters.setChosenDays(req.body.days)
+        await waiters.userExists()
         waiters.saveToDb()
+        await waiters.setSuccessMessage()
+        res.redirect('/waiters')
     }
 
     const workdays = async (req, res) => {

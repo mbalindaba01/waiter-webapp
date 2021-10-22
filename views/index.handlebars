@@ -1,5 +1,6 @@
+<div class="success">{{success}}</div>
 <header>
-    <h2>What's up, {{name}}</h2>
+    <h2>{{greetText}} {{name}}</h2>
     <p>Choose the days you will work on</p>
 </header>
 <form action="/days" method="post" id="days">
@@ -11,7 +12,7 @@
             </span>
         {{/each}}
     </div>
-    <button type="submit" value="Submit">Submit</button>
+    <button type="submit" value="Submit">{{btnText}}</button>
 </form>
 
 {{!-- <form action="/" method="get">

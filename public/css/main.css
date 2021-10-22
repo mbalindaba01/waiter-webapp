@@ -9,7 +9,7 @@
 body {
     height: 100vh;
     background: #040F16;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,8 +20,11 @@ body {
 .container {
     display: flex;
     align-items: center;
+    justify-content: space-around;
     margin-top: 20px;
-    padding: 20px;
+    flex-wrap: wrap;
+    height: 10vh;
+    border: 1px solid #FBFBFF;
 }
 
 input:checked ~ label {
@@ -35,11 +38,9 @@ input[type="checkbox"] {
 
 .container label {
     cursor: pointer;
-    margin: 0 10px;
-    height: 30px;
-    width: 100%;
+    margin: 10px;
     padding: 10px;
-    border: 1px solid #FBFBFF;
+    width: 100px;
 }
 
 button {
@@ -51,7 +52,7 @@ button {
     border: none;
     border-radius: 0;
     color: #FBFBFF;
-    font-size: 1em;
+    font-size: 14px;
     cursor: pointer;
 }
 
@@ -69,7 +70,7 @@ h2{
 }
 
 ::placeholder {
-    font-size: 1em;
+    font-size: 14px;
 }
 
 form#login {
@@ -81,4 +82,27 @@ form#days {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+form#workdays {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        padding: 0;
+        overflow:hidden;
+    }
+}
+
+.success {
+    background: #25F500;
+    position: absolute;
+    top: 10%;
+    animation: cssAnimation 0s ease-in 2s forwards;
 }

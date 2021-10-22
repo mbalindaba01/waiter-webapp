@@ -5,7 +5,7 @@ create table days (
 
 create table waiters (
     waiter_id serial not null primary key, 
-    waiter_name varchar not null, 
+    waiter_name varchar not null unique, 
     days varchar not null
 );
 
