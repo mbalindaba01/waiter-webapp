@@ -3,18 +3,18 @@ const Waiters = require('../waiters')
 let Manager = require('../manager')
 
 
-// let useSSL = false
-// let local = process.env.local || false
-// if(process.env.DATABASE_URL && !local){
-//     useSSL = true
-// }
+let useSSL = false
+let local = process.env.local || false
+if(process.env.DATABASE_URL && !local){
+    useSSL = true
+}
 
 //set up pool connection to database
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL || "postgresql://postgres:Minenhle!28@localhost:5432/waiter_app",
-  ssl: {
-    rejectUnauthorized: false
-  }
+//   ssl: {
+//     rejectUnauthorized: false
+//   }
 })
 
 const waiters = Waiters(pool)
