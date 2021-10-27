@@ -42,13 +42,8 @@ app.post('/home', routes.home)
 app.post('/name', routes.name)
 
 app.post('/workdays', routes.workdays)
-// //empties database and resets counter
-// app.post("/counter", routes.counter)
 
-// app.post("/greeted", routes.greeted)
-
-// app.get("/greeted/:name", routes.greetList)
-
+app.post('/reset', routes.reset)
 const PORT = process.env.PORT || 3012
 
 app.listen(PORT, () => {

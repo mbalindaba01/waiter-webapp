@@ -66,6 +66,10 @@ module.exports = (pool) => {
         return btnText
     }
 
+    const reset = () => {
+        pool.query("truncate waiters")
+    }
+
     return {
         setUser,
         getDays,
@@ -79,6 +83,7 @@ module.exports = (pool) => {
         greetText,
         success,
         btnMessage,
-        setSuccessMessage
+        setSuccessMessage,
+        reset
     }
 }

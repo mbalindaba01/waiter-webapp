@@ -14,9 +14,15 @@ module.exports = (pool) => {
         return waiters.rows
     }
 
+    const getDayColor = async () => {
+        let waiters = await pool.query("SELECT * FROM waiters WHERE days LIKE '%' || $1 || '%'", [getDay()])
+        return waiters.rows.length
+    }
+
     return {
         setDay,
         getDay,
-        getWaiters
+        getWaiters,
+        getDayColor
     }
 }

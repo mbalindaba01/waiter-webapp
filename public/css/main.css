@@ -91,6 +91,10 @@ form#workdays {
     justify-content: space-evenly;
 }
 
+#Orange {
+    background: orange;
+}
+
 @keyframes cssAnimation {
     to {
         width:0;
@@ -98,6 +102,10 @@ form#workdays {
         padding: 0;
         overflow:hidden;
     }
+}
+
+.Orange {
+    background: orange;
 }
 
 .success {
