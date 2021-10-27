@@ -2,7 +2,9 @@
 <p>Here is where we are at currently this week</p>
 
 <form action="/workdays" method="post" id="workdays">
-    <button type="submit" name="days" value="{{day}}">{{dayColor}}</button>
+    {{#each days}}
+    <button type="submit" name="days" value="{{day}}">{{day}}</button>
+    {{/each}}
 </form>
 <h3>This is a list of available waiters. Click on a day to see which of these are available on that day</h3>
 {{#each waiters}}
