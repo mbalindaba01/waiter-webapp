@@ -84,6 +84,14 @@ module.exports = () => {
         res.redirect('/dashboard')
     }
 
+    const initial = (req, res) => {
+        res.redirect('/')
+    }
+
+    const exit = (req, res) => {
+        res.redirect('/login')
+    }
+
     return {
         main,
         days,
@@ -93,6 +101,8 @@ module.exports = () => {
         login,
         name,
         workdays,
-        reset
+        reset,
+        initial,
+        exit
     }
 }

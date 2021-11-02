@@ -44,6 +44,11 @@ app.post('/name', routes.name)
 app.post('/workdays', routes.workdays)
 
 app.post('/reset', routes.reset)
+
+app.post('/initial', routes.initial)
+
+app.post('/logout', routes.exit)
+
 const PORT = process.env.PORT || 3012
 
 app.listen(PORT, () => {

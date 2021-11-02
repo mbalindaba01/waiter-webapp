@@ -95,6 +95,25 @@ form#workdays {
     background: orange;
 }
 
+div.nav {
+    position: absolute;
+    top: 0;
+    display: flex;
+    left: 0;
+}
+
+div.nav form button {
+    background: none;
+    width: 70px;
+    font-size: 20px;
+    border: 1px solid #FBFBFF;
+}
+
+div.nav form button:hover {
+    background: #25F500;
+    border: none;
+}
+
 @keyframes cssAnimation {
     to {
         width:0;
